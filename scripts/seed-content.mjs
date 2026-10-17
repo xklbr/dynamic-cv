@@ -114,14 +114,12 @@ function block(parts, { list = false } = {}) {
     if (last && !!last.strong === !!p.strong) last.text += p.text;
     else merged.push({ ...p });
   }
-  const children = merged.map(
-    (p) => ({
-      _key: key(p.text),
-      _type: "span",
-      text: p.text,
-      marks: p.strong ? ["strong"] : [],
-    }),
-  );
+  const children = merged.map((p) => ({
+    _key: key(p.text),
+    _type: "span",
+    text: p.text,
+    marks: p.strong ? ["strong"] : [],
+  }));
   return {
     _key: key(children.map((c) => c.text).join("")),
     _type: "block",
@@ -184,12 +182,12 @@ const aboutMeContent = {
   links: [
     {
       _key: key("GitHub"),
-      platformName: "GitHub",
+      platformName: "github.com/xklbr",
       link: "https://github.com/xklbr",
     },
     {
       _key: key("LinkedIn"),
-      platformName: "LinkedIn",
+      platformName: "linkedin.com/in/arturodangond",
       link: "https://www.linkedin.com/in/arturodangond",
     },
   ],
@@ -262,8 +260,8 @@ const aboutMeContent = {
 // ---------------------------------------------------------------------------
 
 const LOC = {
-  remote: { location: "Remote", locationEs: "Remoto" },
-  hybrid: { location: "Hybrid", locationEs: "Híbrido" },
+  remote: { location: "remote", locationEs: "remoto" },
+  hybrid: { location: "hybrid", locationEs: "híbrido" },
   onSite: { location: "On-site", locationEs: "Presencial" },
 };
 
@@ -278,16 +276,44 @@ const workExperienceContent = [
     current: true,
     chronoIndex: 5,
     jobDescriptionEs: bulletList([
-      [t("Desarrollo Front-End con "), t("JavaScript y React"), t(", sin frameworks añadidos.")],
+      [
+        t("Desarrollo Front-End con "),
+        t("JavaScript y React"),
+        t(", sin frameworks añadidos."),
+      ],
       "Testing unitario y de componentes de UI.",
-      [t("A11y: cumplimiento de "), t("WCAG"), t(", validación con lectores de pantalla y navegación por teclado con gestión de foco.")],
-      [t("Colaboración en la estructura de skills y procesos de "), t("SDD (Spec-Driven Development)"), t(" para mejorar el uso de IA.")],
+      [
+        t("A11y: cumplimiento de "),
+        t("WCAG"),
+        t(
+          ", validación con lectores de pantalla y navegación por teclado con gestión de foco.",
+        ),
+      ],
+      [
+        t("Colaboración en la estructura de skills y procesos de "),
+        t("SDD (Spec-Driven Development)"),
+        t(" para mejorar el uso de IA."),
+      ],
     ]),
     jobDescription: bulletList([
-      [t("Front-End development with "), t("JavaScript and React"), t(", with no added frameworks.")],
+      [
+        t("Front-End development with "),
+        t("JavaScript and React"),
+        t(", with no added frameworks."),
+      ],
       "Unit and UI component testing.",
-      [t("A11y: "), t("WCAG"), t(" compliance, screen reader validation, and keyboard navigation with focus management.")],
-      [t("Collaboration on skills structure and "), t("SDD (Spec-Driven Development)"), t(" processes to improve AI usage.")],
+      [
+        t("A11y: "),
+        t("WCAG"),
+        t(
+          " compliance, screen reader validation, and keyboard navigation with focus management.",
+        ),
+      ],
+      [
+        t("Collaboration on skills structure and "),
+        t("SDD (Spec-Driven Development)"),
+        t(" processes to improve AI usage."),
+      ],
     ]),
   },
   {
@@ -302,14 +328,18 @@ const workExperienceContent = [
       [
         t("Desarrollo Full-Stack con "),
         t("NestJS, Next.js y TypeScript"),
-        t(": servicios backend, APIs orientadas a negocio e interfaces web mantenibles, en un entorno remoto y ágil."),
+        t(
+          ": servicios backend, APIs orientadas a negocio e interfaces web mantenibles, en un entorno remoto y ágil.",
+        ),
       ],
       [
         t("Harness agéntico basado en OpenAPI con "),
         t("Agentic UI"),
         t(": "),
         t("tool-calling loop"),
-        t(" iterativo, generación dinámica de tools desde el spec y arquitectura "),
+        t(
+          " iterativo, generación dinámica de tools desde el spec y arquitectura ",
+        ),
         t("LLM-agnostic"),
         t("."),
       ],
@@ -336,7 +366,9 @@ const workExperienceContent = [
       [
         t("Full-Stack development with "),
         t("NestJS, Next.js, and TypeScript"),
-        t(": backend services, business-oriented APIs, and maintainable web interfaces, in a remote, agile environment."),
+        t(
+          ": backend services, business-oriented APIs, and maintainable web interfaces, in a remote, agile environment.",
+        ),
       ],
       [
         t("OpenAPI-based agentic harness with "),
@@ -379,14 +411,22 @@ const workExperienceContent = [
     chronoIndex: 3,
     jobDescriptionEs: bulletList([
       "Participación en la modernización de un sistema ERP hospitalario mediante el diseño e implementación de una solución web unificada.",
-      [t("Desarrollo Full-Stack con "), t("NestJS, PostgreSQL, Next.js, TypeScript y Redux Saga"), t(".")],
+      [
+        t("Desarrollo Full-Stack con "),
+        t("NestJS, PostgreSQL, Next.js, TypeScript y Redux Saga"),
+        t("."),
+      ],
       "Diseño de soluciones orientadas a escalabilidad, mantenibilidad y seguridad en un entorno con requisitos exigentes de protección de datos.",
       "Colaboración con equipos multidisciplinarios para transformar procesos y requisitos del negocio en funcionalidades de software.",
       "Aplicación de buenas prácticas de ingeniería, optimización de procesos y desarrollo iterativo mediante metodologías ágiles.",
     ]),
     jobDescription: bulletList([
       "Participated in the modernisation of a hospital ERP system by designing and implementing a unified web solution.",
-      [t("Full-Stack development with "), t("NestJS, PostgreSQL, Next.js, TypeScript, and Redux Saga"), t(".")],
+      [
+        t("Full-Stack development with "),
+        t("NestJS, PostgreSQL, Next.js, TypeScript, and Redux Saga"),
+        t("."),
+      ],
       "Designed solutions focused on scalability, maintainability, and security in an environment with demanding data-protection requirements.",
       "Collaborated with multidisciplinary teams to translate business processes and requirements into software features.",
       "Applied engineering best practices, process optimisation, and iterative development through agile methodologies.",
@@ -403,7 +443,9 @@ const workExperienceContent = [
     chronoIndex: 2,
     jobDescriptionEs: bulletList([
       [
-        t("Desarrollo de aplicaciones web modernas y sitios de alto rendimiento utilizando "),
+        t(
+          "Desarrollo de aplicaciones web modernas y sitios de alto rendimiento utilizando ",
+        ),
         t("React, Gatsby.js, Sanity.io, GraphQL, Node.js, NestJS y PostgreSQL"),
         t("."),
       ],
@@ -412,8 +454,12 @@ const workExperienceContent = [
     ]),
     jobDescription: bulletList([
       [
-        t("Developed modern web applications and high-performance sites using "),
-        t("React, Gatsby.js, Sanity.io, GraphQL, Node.js, NestJS, and PostgreSQL"),
+        t(
+          "Developed modern web applications and high-performance sites using ",
+        ),
+        t(
+          "React, Gatsby.js, Sanity.io, GraphQL, Node.js, NestJS, and PostgreSQL",
+        ),
         t("."),
       ],
       "Developed custom WordPress solutions from designs and functional requirements provided by design teams.",
@@ -765,7 +811,9 @@ function runSelfCheck() {
       for (const blk of data[f] ?? []) {
         for (const c of blk.children ?? []) {
           if ((c.marks ?? []).length > 0)
-            fail(`${label}.${f}: span con marks ${JSON.stringify(c.marks)} (debe ser texto plano)`);
+            fail(
+              `${label}.${f}: span con marks ${JSON.stringify(c.marks)} (debe ser texto plano)`,
+            );
         }
       }
     }
