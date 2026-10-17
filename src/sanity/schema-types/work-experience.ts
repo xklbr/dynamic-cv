@@ -46,7 +46,8 @@ export const workExperience = defineType({
     defineField({
       name: "hideDescription",
       title: "Hide Description",
-      description: "If enabled, only job title, company and dates will be shown (no job description)",
+      description:
+        "If enabled, only job title, company and dates will be shown (no job description)",
       type: "boolean",
     }),
     defineField({
@@ -61,17 +62,15 @@ export const workExperience = defineType({
       type: "string",
     }),
     defineField({
-      name: "modality",
-      title: "Modality",
+      name: "location",
+      title: "Location",
       type: "string",
-      options: {
-        list: [
-          { title: "On-site", value: "on-site" },
-          { title: "Hybrid", value: "hybrid" },
-          { title: "Remote", value: "remote" },
-        ],
-      },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "locationEs",
+      title: "Location (ES)",
+      type: "string",
     }),
     defineField({
       name: "jobDescription",

@@ -27,11 +27,6 @@ interface UiStrings {
     education: { en: string; es: string };
   };
   present: { en: string; es: string };
-  modality: {
-    onSite: { en: string; es: string };
-    hybrid: { en: string; es: string };
-    remote: { en: string; es: string };
-  };
 }
 
 const { data: ui } = await loadQuery<UiStrings>({
@@ -69,7 +64,9 @@ const { data: ui } = await loadQuery<UiStrings>({
       <span class="text-gray-300">|</span>
       <a
         href="/resume/en"
-        title={lang === "en" ? "You are already in English" : "Switch to English"}
+        title={lang === "en"
+          ? "You are already in English"
+          : "Switch to English"}
         aria-current={lang === "en" ? "page" : undefined}
         class={`transition ease-in-out duration-200 hover:text-gray-500 ${lang === "en" ? "text-gray-900" : "text-gray-400"}`}
       >

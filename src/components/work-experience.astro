@@ -9,11 +9,6 @@ interface UiStrings {
     workExperience: { en: string; es: string };
   };
   present: { en: string; es: string };
-  modality: {
-    onSite: { en: string; es: string };
-    hybrid: { en: string; es: string };
-    remote: { en: string; es: string };
-  };
 }
 
 interface Props {
@@ -22,17 +17,6 @@ interface Props {
 }
 
 const { lang = "en", ui } = Astro.props as Props;
-
-const modalityKeyMap: Record<string, keyof UiStrings["modality"]> = {
-  "on-site": "onSite",
-  hybrid: "hybrid",
-  remote: "remote",
-};
-
-const getModality = (modality: string) => {
-  const key = modalityKeyMap[modality];
-  return key ? ui.modality[key][lang] : modality;
-};
 
 interface WorkExperience {
   title: string;
@@ -44,7 +28,8 @@ interface WorkExperience {
   hideDescription?: boolean;
   companyName: string;
   companyNameEs?: string;
-  modality: string;
+  location: string;
+  locationEs?: string;
   jobDescription: any[];
   jobDescriptionEs?: any[];
   chronoIndex: number;
@@ -61,7 +46,8 @@ const { data: workExperiences } = await loadQuery<WorkExperience[]>({
     hideDescription,
     companyName,
     companyNameEs,
-    modality,
+    location,
+    locationEs,
     jobDescription,
     jobDescriptionEs,
     chronoIndex
@@ -100,7 +86,10 @@ const { data: workExperiences } = await loadQuery<WorkExperience[]>({
           lang === "es"
             ? (experience.companyNameEs ?? experience.companyName)
             : experience.companyName;
-        const modality = getModality(experience.modality);
+        const location =
+          lang === "es"
+            ? (experience.locationEs ?? experience.location)
+            : experience.location;
 
         return (
           <article class="cv-entry mt-4 font-normal text-base">
@@ -108,8 +97,7 @@ const { data: workExperiences } = await loadQuery<WorkExperience[]>({
               {jobTitle}
             </p>
             <p class="text-base font-medium lg:font-normal lg:text-lg italic">
-              {companyName}, {modality} | {formattedStart}{" "}
-              - {formattedEnd}
+              {companyName}, {location} | {formattedStart} - {formattedEnd}
             </p>
             {!experience.hideDescription && (
               <div

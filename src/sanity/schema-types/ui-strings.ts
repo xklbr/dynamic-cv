@@ -67,27 +67,5 @@ export const uiStrings = defineType({
       title: "Present",
       type: "localizedString",
     }),
-    defineField({
-      name: "modality",
-      title: "Modality",
-      type: "object",
-      fields: [
-        defineField({
-          name: "onSite",
-          title: "On-site",
-          type: "localizedString",
-        }),
-        defineField({
-          name: "hybrid",
-          title: "Hybrid",
-          type: "localizedString",
-        }),
-        defineField({
-          name: "remote",
-          title: "Remote",
-          type: "localizedString",
-        }),
-      ],
-    }),
   ],
 });
