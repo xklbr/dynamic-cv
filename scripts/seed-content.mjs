@@ -273,7 +273,8 @@ const workExperienceContent = [
     jobTitleEs: "Desarrollador Front-End",
     jobTitle: "Front-End Developer",
     startDate: "2026-03-01",
-    current: true,
+    endDate: "2026-10-01",
+    current: false,
     chronoIndex: 4,
     jobDescriptionEs: bulletList([
       [
