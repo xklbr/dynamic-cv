@@ -274,7 +274,7 @@ const workExperienceContent = [
     jobTitle: "Front-End Developer",
     startDate: "2026-03-01",
     current: true,
-    chronoIndex: 5,
+    chronoIndex: 4,
     jobDescriptionEs: bulletList([
       [
         t("Desarrollo Front-End con "),
@@ -323,7 +323,7 @@ const workExperienceContent = [
     jobTitle: "Full-Stack Developer",
     startDate: "2025-06-01",
     current: true,
-    chronoIndex: 4,
+    chronoIndex: 5,
     jobDescriptionEs: bulletList([
       [
         t("Desarrollo Full-Stack con "),
